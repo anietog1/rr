@@ -1,0 +1,10 @@
+#! /usr/bin/bash
+
+PROGRAM="$VISUAL"
+[ "$PROGRAM" ] || PROGRAM="$EDITOR"
+if [ -z "$PROGRAM" ]; then
+    echo "VISUAL/EDITOR not found"
+    exit 1
+fi
+
+"$PROGRAM" "$HOME/.local/etc/rr/$1"

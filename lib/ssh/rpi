@@ -1,0 +1,3 @@
+#! /usr/bin/bash
+
+sshpass -p somepassword ssh agustin@192.168.1.62

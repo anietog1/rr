@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+newfile="$HOME/.local/etc/rr/$1"
+mkdir -p "$(dirname $newfile)"
+cat << EOF >> "$newfile"
+#! /usr/bin/bash
+
+EOF
+chmod +x "$newfile"

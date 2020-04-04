@@ -1,0 +1,20 @@
+#! /usr/bin/bash
+
+case "$1" in
+    cpp|c++|cxx)
+        cat template.cpp
+        exit
+        ;;
+    bash|sh)
+        cat template.sh
+        exit
+        ;;
+    python|py)
+        cat template.py
+        exit
+        ;;
+    *)
+        echo "Provide a valid template"
+        exit
+        ;;
+esac
