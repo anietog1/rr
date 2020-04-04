@@ -1,0 +1,27 @@
+_rr() {
+    local cur prev
+    _init_completion || return
+
+    if [ $prev = rr ] && [[ $cur == -* ]]; then
+        COMPREPLY=( $(compgen -W "--help" -- $cur) )
+        return
+    fi
+
+    if [ $prev = rr ]; then
+        local cwd="$(pwd)" _compreply=()
+
+        cd "$HOME/.local/etc/rr"
+        _filedir
+
+        for file in "${COMPREPLY[@]}"; do
+            [ -d "$file" ] && file="$file/"
+            _compreply=( "${_compreply[@]}" "$file" )
+        done
+
+        COMPREPLY=( "${_compreply[@]}" )
+        cd "$cwd"
+        return
+    fi
+}
+
+complete -o nospace -F _rr rr
