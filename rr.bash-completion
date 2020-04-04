@@ -15,7 +15,7 @@ _rr() {
 
         for file in "${COMPREPLY[@]}"; do
             [ -d "$file" ] && file="$file/"
-            _compreply=( "${_compreply[@]}" "$file" )
+            [ -x "$file" ] && _compreply=( "${_compreply[@]}" "$file" )
         done
 
         COMPREPLY=( "${_compreply[@]}" )
