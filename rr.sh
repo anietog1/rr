@@ -20,5 +20,6 @@ if [ "$#" = 0 ] || [ "$1" = --help ]; then
     exit
 fi
 
-COMMAND_PATH="$1"
-"$HOME/.local/etc/rr/$COMMAND_PATH"
+COMMAND_PATH="$HOME/.local/etc/rr/$1"
+WD="$(dirname $COMMAND_PATH)" "$COMMAND_PATH" "${@:2}"
+exit "$?"
